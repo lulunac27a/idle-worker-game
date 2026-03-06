@@ -69,7 +69,7 @@ function updateWorkersDisplay() {
     workersText.innerText = "";
     workers.forEach((worker, index) => {
         const workerDiv = document.createElement("div");
-        workerDiv.textContent = `Worker #${index + 1} - Level: ${worker.level}, Production: ${worker.production} Gold/s`;
+        workerDiv.textContent = `Worker #${worker.number} - Level: ${worker.level}, Production: ${worker.production} Gold/s`;
         const upgradeButton = document.createElement("button");
         upgradeButton.textContent = `Upgrade (Cost: ${worker.upgradeWorkerCost} Gold)`;
         upgradeButton.addEventListener("click", () => upgradeWorker(index));
