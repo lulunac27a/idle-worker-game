@@ -73,6 +73,7 @@ function updateWorkersDisplay() {
         const upgradeButton = document.createElement("button");
         upgradeButton.textContent = `Upgrade (Cost: ${worker.upgradeWorkerCost} Gold)`;
         upgradeButton.addEventListener("click", () => upgradeWorker(index));
+        workerDiv.appendChild(document.createElement("br"));
         workerDiv.appendChild(upgradeButton);
         workersText.appendChild(workerDiv);
     });
