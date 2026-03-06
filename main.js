@@ -35,6 +35,7 @@ buyWorkerButton.addEventListener("click", () => {
             upgradeWorkerCost: Math.floor(workerCost * upgradeCostMultiplier),
         });
         updateGoldPerSecond();
+        updateWorkersDisplay();
         workerCost = Math.floor(
             baseWorkerCost * Math.pow(workerCostMultiplier, workerCount),
         );
@@ -63,6 +64,7 @@ function upgradeWorker(index) {
                 Math.pow(upgradeCostMultiplier, worker.level - 1),
         );
         updateGoldPerSecond();
+        updateWorkersDisplay();
     }
 }
 function updateWorkersDisplay() {
