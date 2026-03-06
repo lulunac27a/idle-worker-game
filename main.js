@@ -24,8 +24,10 @@ buyWorkerButton.addEventListener('click', () => {
         workerCount++;
         workers.push({
             number: workerCount + 1,
+            baseProduction: Math.floor(baseWorkerProduction),
             production: Math.floor(baseWorkerProduction),
             level: 1,
+            baseUpgradeWorkerCost: Math.floor(workerCost * upgradeCostMultiplier),
             upgradeWorkerCost: Math.floor(workerCost * upgradeCostMultiplier)
         });
         updateGoldPerSecond();
@@ -43,8 +45,8 @@ function upgradeWorker(index) {
         gold -= worker.upgradeWorkerCost;
         goldAmountText.textContent = gold;
         worker.level++;
-        worker.production = Math.floor(worker.production * workerProductionMultiplier);
-        worker.upgradeWorkerCost = Math.floor(workerCost * Math.pow(upgradeCostMultiplier, worker.level));
+        worker.production = Math.floor(worker.baseProduction * Math.pow(workerProductionMultiplier, worker.level - 1));
+        worker.upgradeWorkerCost = Math.floor(worker.baseUpgradeWorkerCost * Math.pow(upgradeCostMultiplier, worker.level - 1));
         updateGoldPerSecond();
     };
 };
