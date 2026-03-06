@@ -17,12 +17,12 @@ let workerCost = Math.floor(
 let workers = [];
 earnGoldButton.addEventListener("click", () => {
     gold += 1 + goldPerSecond / 100;
-    goldAmountText.textContent = gold;
+    goldAmountText.textContent = Math.floor(gold);
 });
 buyWorkerButton.addEventListener("click", () => {
     if (gold >= workerCost) {
         gold -= workerCost;
-        goldAmountText.textContent = gold;
+        goldAmountText.textContent = Math.floor(gold);
         workerCount++;
         workers.push({
             number: workerCount + 1,
@@ -52,7 +52,7 @@ function upgradeWorker(index) {
     const worker = workers[index];
     if (gold >= worker.upgradeWorkerCost) {
         gold -= worker.upgradeWorkerCost;
-        goldAmountText.textContent = gold;
+        goldAmountText.textContent = Math.floor(gold);
         worker.level++;
         worker.production = Math.floor(
             worker.baseProduction *
@@ -80,6 +80,6 @@ function updateWorkersDisplay() {
 }
 setInterval(() => {
     gold += goldPerSecond;
-    goldAmountText.textContent = gold;
+    goldAmountText.textContent = Math.floor(gold);
     updateWorkersDisplay();
 }, 1000);
