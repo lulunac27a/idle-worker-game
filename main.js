@@ -6,6 +6,7 @@ const workersText = document.getElementById("workers"); //workers text display
 const levelText = document.getElementById("level"); //level text display
 const xpText = document.getElementById("xp"); //xp text display
 const xpRequiredText = document.getElementById("xpRequired"); //xp required text display
+const xpBar = document.getElementById("xpBar"); //xp progress bar
 let gold = 0; //set initial gold amount
 let goldPerSecond = 0; //set initial gold per second
 let level = 1; //set initial level
@@ -109,9 +110,11 @@ function updateLevelXp() {
         levelText.textContent = level; //update level text
         xpText.textContent = xp; //update xp text
         xpRequiredText.textContent = xpRequired; //update xp required text
+        xpBar.max = xpRequired; //update xp progress bar max
     }
     xpText.textContent = xp; //update xp text
     xpRequiredText.textContent = xpRequired; //update xp required text
+    xpBar.value = xp; //update xp progress bar
 }
 setInterval(() => {
     //increase gold every second
