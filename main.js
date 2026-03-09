@@ -79,7 +79,7 @@ function upgradeWorker(index) {
             worker.baseUpgradeWorkerCost *
                 Math.pow(upgradeCostMultiplier, worker.level - 1),
         ); //increase worker upgrade cost
-        xp += Math.floor(10 * Math.pow(1.1, worker.level - 1 + index)); //increase xp
+        xp += Math.floor(10 * Math.pow(1.05, worker.level - 1 + index)); //increase xp
         updateLevelXp(); //update level and xp
         updateGoldPerSecond(); //update gold per second
         updateWorkersDisplay(); //update workers display
