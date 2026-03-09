@@ -3,8 +3,14 @@ const workerCostText = document.getElementById("workerCost"); //worker cost text
 const buyWorkerButton = document.getElementById("buyWorker"); //buy worker button
 const earnGoldButton = document.getElementById("earnGold"); //earn gold button
 const workersText = document.getElementById("workers"); //workers text display
+const levelText = document.getElementById("level"); //level text display
+const xpText = document.getElementById("xp"); //xp text display
+const xpRequiredText = document.getElementById("xpRequired"); //xp required text display
 let gold = 0; //set initial gold amount
 let goldPerSecond = 0; //set initial gold per second
+let level = 1; //set initial level
+let xp = 0; //set initial xp
+let xpRequired = 100; //set initial xp required
 const baseWorkerCost = 100; //base worker cost
 const baseWorkerProduction = 5; //base worker production
 const workerCostMultiplier = 1.15; //worker cost multiplier
@@ -38,6 +44,8 @@ buyWorkerButton.addEventListener("click", () => {
             ),
             upgradeWorkerCost: Math.floor(workerCost * upgradeCostMultiplier),
         });
+        xp += Math.floor(10 * Math.pow(1.1, workerCount - 1)); //increase xp
+        updateLevelXp(); //update level and xp
         updateGoldPerSecond(); //update gold per second
         updateWorkersDisplay(); //update workers display
         workerCost = Math.floor(
@@ -70,6 +78,8 @@ function upgradeWorker(index) {
             worker.baseUpgradeWorkerCost *
                 Math.pow(upgradeCostMultiplier, worker.level - 1),
         ); //increase worker upgrade cost
+        xp += Math.floor(10 * Math.pow(1.1, worker.level - 1 + index)); //increase xp
+        updateLevelXp(); //update level and xp
         updateGoldPerSecond(); //update gold per second
         updateWorkersDisplay(); //update workers display
     }
@@ -88,6 +98,20 @@ function updateWorkersDisplay() {
         workerDiv.appendChild(upgradeButton);
         workersText.appendChild(workerDiv);
     });
+}
+function updateLevelXp() {
+    //update level and xp
+    if (xp >= xpRequired) {
+        //check if player has enough xp
+        level++; //increase level
+        xp -= xpRequired; //decrease xp
+        xpRequired = Math.floor(100 * Math.pow(1.5, level - 1)); //increase xp required
+        levelText.textContent = level; //update level text
+        xpText.textContent = xp; //update xp text
+        xpRequiredText.textContent = xpRequired; //update xp required text
+    }
+    xpText.textContent = xp; //update xp text
+    xpRequiredText.textContent = xpRequired; //update xp required text
 }
 setInterval(() => {
     //increase gold every second
