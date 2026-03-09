@@ -87,7 +87,7 @@ function upgradeWorker(index) {
 }
 function updateWorkersDisplay() {
     //update workers display
-    workersText.innerText = ""; //clear workers text
+    workersText.textContent = ""; //clear workers text
     workers.forEach((worker, index) => {
         //repeat for each worker
         const workerDiv = document.createElement("div"); //create worker div
