@@ -45,7 +45,7 @@ buyWorkerButton.addEventListener("click", () => {
             ),
             upgradeWorkerCost: Math.floor(workerCost * upgradeCostMultiplier),
         });
-        xp += Math.floor(10 * Math.pow(1.1, workerCount - 1)); //increase xp
+        xp += Math.floor(10 * Math.pow(1.05, workerCount - 1)); //increase xp
         updateLevelXp(); //update level and xp
         updateGoldPerSecond(); //update gold per second
         updateWorkersDisplay(); //update workers display
