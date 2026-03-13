@@ -96,8 +96,8 @@ function updateWorkersDisplay() {
         upgradeButton.textContent = `Upgrade (Cost: ${worker.upgradeWorkerCost} Gold)`; //add upgrade button text
         upgradeButton.addEventListener("click", () => upgradeWorker(index)); //add upgrade button event listener
         workerDiv.appendChild(document.createElement("br")); //add line break
-        workerDiv.appendChild(upgradeButton);
-        workersText.appendChild(workerDiv);
+        workerDiv.appendChild(upgradeButton); //add upgrade button to worker div
+        workersText.appendChild(workerDiv); //add worker div to workers text
     });
 }
 function updateLevelXp() {
