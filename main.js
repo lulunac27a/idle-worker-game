@@ -36,13 +36,13 @@ buyWorkerButton.addEventListener("click", () => {
         workerCount++; //increase worker count
         workers.push({
             //add worker to list of workers
-            number: workerCount + 1,
-            baseProduction: Math.floor(baseWorkerProduction),
+            number: workerCount + 1, //worker number
+            baseProduction: Math.floor(baseWorkerProduction), //base worker production
             production: Math.floor(baseWorkerProduction),
             level: 1,
             baseUpgradeWorkerCost: Math.floor(
                 workerCost * upgradeCostMultiplier,
-            ),
+            ), //base upgrade worker cost
             upgradeWorkerCost: Math.floor(workerCost * upgradeCostMultiplier),
         });
         xp += Math.floor(10 * Math.pow(1.02, workerCount - 1)); //increase xp
