@@ -38,8 +38,8 @@ buyWorkerButton.addEventListener("click", () => {
             //add worker to list of workers
             number: workerCount + 1, //worker number
             baseProduction: Math.floor(baseWorkerProduction), //base worker production
-            production: Math.floor(baseWorkerProduction),
-            level: 1,
+            production: Math.floor(baseWorkerProduction), //initial production
+            level: 1, //initial level
             baseUpgradeWorkerCost: Math.floor(
                 workerCost * upgradeCostMultiplier,
             ), //base upgrade worker cost
